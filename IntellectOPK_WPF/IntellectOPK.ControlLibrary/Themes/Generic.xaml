@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:IntellectOPK.ControlLibrary">
+    
+    <!--<Style TargetType="{x:Type local:MsTextBox}">
+        <Setter Property="Template">
+            <Setter.Value>                
+                <ControlTemplate TargetType="{x:Type local:MsTextBox}">                    
+                    <Grid>                            
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="PART_Operand1" Margin="4" Width="75"></TextBox>
+                            <TextBlock Margin="4">+</TextBlock>
+                            <TextBox x:Name="PART_Operand2" Margin="4"  Width="75"></TextBox>
+                            <TextBlock Margin="4">=</TextBlock>
+                            <TextBox x:Name="PART_Result" Margin="4"  Width="75"></TextBox>
+                        </StackPanel>
+                        <Button x:Name="PART_ButtonSum" Padding="4" Margin="4">Sum</Button>                            
+                    </Grid>                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+</ResourceDictionary>

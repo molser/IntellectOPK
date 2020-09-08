@@ -1,0 +1,4 @@
+1. Файл sync.xml скопировать с заменой в папку с установленной программой Intellect на каждом сервере в системе.
+2. Добавить в конфигурацию системы Intellect все скрипты из папки Scripts.
+3. С помощью Microsoft SQL Managment Studio выполнить скрипт All_Intellect_Servers_Install.sql из папки SQL на серверах системы, где установлена база данных Intellect.
+4. С помощью Microsoft SQL Managment Studio выполнить скрипт Sourse_Intellect_Server_Only_Install.sql из папки SQL на одном сервере системы, где установлена база данных Intellect, которая будет является источником основных данных для хранилища IntellectDW.

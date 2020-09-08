@@ -1,0 +1,75 @@
+﻿<Window x:Class="IntellectOPK.Views.IidkMessageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IntellectOPK.Views"
+        xmlns:conv="clr-namespace:IntellectOPK.Converters" 
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="400" Width="400"
+        Style="{StaticResource VS2012WindowStyle}">
+    <Window.Resources>
+        <conv:NullToVisibilityConverter x:Key="nullToVisibilityConverter"/>
+    </Window.Resources>
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" Height="26" Width="60" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                Margin="0,10,15,15" Content="OK"
+                Command="{Binding ConfirmCommand}" IsDefault="True">
+        </Button>
+        <Grid Margin="15,0,15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="SourceType:"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SourceType}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="SourceId:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SourceId}"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Action:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Action}"/>
+            </Grid>
+            <DataGrid Grid.Row="1"
+                x:Name="dgParams" 
+                Margin="0,7,0,0"
+                ItemsSource="{Binding Params}"                              
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Top"
+                AutoGenerateColumns="False"
+                Visibility="{Binding Params, Converter={StaticResource nullToVisibilityConverter}}" 
+                GridLinesVisibility="Horizontal"
+                HorizontalGridLinesBrush="{StaticResource DataGridLinesBrush}"
+                CanUserResizeRows="False"
+                CanUserAddRows="False"
+                HeadersVisibility="All" 
+                SelectionMode="Extended"
+                EnableRowVirtualization="True"
+                EnableColumnVirtualization="True"
+                VirtualizingPanel.VirtualizationMode="Recycling"
+                IsTextSearchEnabled="True"
+                TextSearch.TextPath="ParamName"
+                >
+                <DataGrid.Columns> 
+                    <DataGridTextColumn Header="Параметр" Binding="{Binding Path=ParamName}" IsReadOnly="False">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Значение" Binding="{Binding Path=ParamValue}" IsReadOnly="False" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,5 @@
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\bin\Debug\IntellectIIDK.dll
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\bin\Debug\IntellectIIDK.pdb
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\obj\Debug\IntellectIIDK.dll
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\obj\Debug\IntellectIIDK.pdb
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\obj\Debug\IntellectIIDK.csprojResolveAssemblyReference.cache

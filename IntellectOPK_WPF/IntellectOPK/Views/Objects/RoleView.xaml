@@ -1,0 +1,147 @@
+﻿<Window x:Class="IntellectOPK.Views.RoleView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IntellectOPK.Views"
+        mc:Ignorable="d"
+        xmlns:conv="clr-namespace:IntellectOPK.Converters" 
+        Title="{Binding Title}" Height="450" Width="600" SizeToContent="Width"
+        Style="{StaticResource VS2012WindowStyle}"
+        ResizeMode="CanResizeWithGrip">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToUIVisibilityConverter" />
+        <conv:NullToVisibilityConverter x:Key="nullToVisibilityConverter"/>
+        <conv:BoolToBoolInverseConverter x:Key="inverseBooleanConverter" />
+        <!--<conv:CheckBoxMultiConverter x:Key="checkBoxMultiConverter" />-->
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" 
+                    Margin="0,10,15,15" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom">
+            <Button Height="26" Width="60" VerticalAlignment="Top" HorizontalAlignment="Left" Content="OK"
+                    Command="{Binding ConfirmCommand}" IsDefault="True">
+            </Button>
+            <Button  VerticalAlignment="Top" HorizontalAlignment="Left" IsCancel="True"  Content="Отмена" Margin="10,0,0,0" Height="26" Width="60"/>
+        </StackPanel>
+        <Grid Margin="15,0,15,0" DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition  />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.ColumnSpan="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Права группы:"/>
+                <DataGrid Grid.Row="1" x:Name="RolePermissions" Margin="0,5,0,0"
+                ItemsSource="{Binding RolePermissions}"                              
+                LoadingRow="dataGrid_LoadingRow" 
+                GotFocus="DataGrid_OneClickCheckBoxEdit"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                AutoGenerateColumns="False"
+                Visibility="{Binding RolePermissions, Converter={StaticResource nullToVisibilityConverter}}" 
+                GridLinesVisibility="Horizontal"
+                HorizontalGridLinesBrush="{StaticResource DataGridLinesBrush}"
+                CanUserResizeRows="False"
+                CanUserAddRows="False"
+                HeadersVisibility="Column" 
+                SelectionMode="Single"
+                >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Право" Binding="{Binding Path=Description}" IsReadOnly="True">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn IsReadOnly="False" CanUserSort="True" SortMemberPath="IsChecked">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <CheckBox IsChecked="{Binding Path=IsChecked, UpdateSourceTrigger=PropertyChanged}" 
+                                                  IsEnabled="{Binding DataContext.AppUserPermissions[ManageRolePermissions], RelativeSource={RelativeSource AncestorType=Window}}"
+                                                  HorizontalAlignment="Left" Margin="4,0,4,0"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <CheckBox ToolTip="Выбрать все" HorizontalAlignment="Left"
+                                                  IsChecked="{Binding DataContext.AllRolePermissionsCheckedUnchecked, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=Window}, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsEnabled="{Binding DataContext.AppUserPermissions[ManageRolePermissions], RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Margin="0,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"  Text="Пользователи группы:"/>
+                <DataGrid Grid.Row="1"  x:Name="RoleUsers" Margin="0,5,0,0"
+                    ItemsSource="{Binding RoleUsers}"
+                    LoadingRow="dataGrid_LoadingRow"
+                    GotFocus="DataGrid_OneClickCheckBoxEdit"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    AutoGenerateColumns="False"
+                    Visibility="{Binding RoleUsers, Converter={StaticResource nullToVisibilityConverter}}" 
+                    GridLinesVisibility="Horizontal"
+                    HorizontalGridLinesBrush="{StaticResource DataGridLinesBrush}"
+                    CanUserResizeRows="False"
+                    CanUserAddRows="False"
+                    HeadersVisibility="All"
+                    SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Логин" Binding="{Binding Path=Login}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" IsReadOnly="True"/>
+                        <!--<DataGridCheckBoxColumn Binding="{Binding Path=IsChecked, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" CanUserResize="False">
+                        </DataGridCheckBoxColumn>-->
+                        <DataGridTemplateColumn IsReadOnly="False" CanUserSort="True" SortMemberPath="IsChecked">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <CheckBox IsChecked="{Binding Path=IsChecked, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="4,0,4,0"
+                                                  IsEnabled="{Binding DataContext.AppUserPermissions[ManageUserRoles], RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <CheckBox ToolTip="Выбрать все" HorizontalAlignment="Left"
+                                                  IsChecked="{Binding DataContext.AllRoleUsersCheckedUnchecked, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=Window}, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsEnabled="{Binding DataContext.AppUserPermissions[ManageUserRoles], RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+        </Grid>        
+    </DockPanel>
+</Window>

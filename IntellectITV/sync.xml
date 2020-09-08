@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes"?>
+<IgnoreTables>
+	<table>PROTOCOL</table>
+	<table>UPDATE_OBJECT_LOG</table>
+	<table>UPDATE_OBJECT_QUEUE</table>
+	<table>UPDATE_PROTOCOL</table>
+	<table>REGION_PASS</table>
+	<table>REGION_ENTER_EXIT</table>
+	<table>UPDATE_PERSON_LOG</table>
+	<table>OBJ_MAPLAYER_GEO</table>
+	<table>PROTOCOL_EXP</table>
+	<table>SP_LOG</table>
+	<table>PERSONS</table>
+	<table>LEVEL_EXTANDED</table>
+</IgnoreTables>

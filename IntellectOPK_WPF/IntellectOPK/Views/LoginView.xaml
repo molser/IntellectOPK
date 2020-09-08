@@ -1,0 +1,168 @@
+﻿<Window x:Class="IntellectOPK.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        xmlns:conv="clr-namespace:IntellectOPK.Converters"        
+        xmlns:v="clr-namespace:IntellectOPK.ValidationRules"
+        xmlns:xctk="http://schemas.xceed.com/wpf/ xaml/toolkit"
+        xmlns:molser="clr-namespace:MolserLib.Controls;assembly=MolserLib"
+        Height="206" MinHeight="40" MaxHeight="260" Width="320" MinWidth="40" MaxWidth="320" WindowStartupLocation="CenterScreen" 
+        Title="{Binding Title}" 
+        Style="{StaticResource VS2012WindowStyle}"
+        ResizeMode="NoResize"
+        Icon="/Resources/Icons/IntellectOPK.ico" 
+       >
+    <Window.Resources>
+        <conv:BoolToUIVisibilityConverter x:Key="boolToUIVisibilityConverter"></conv:BoolToUIVisibilityConverter>
+        <conv:BoolToUIVisibilityInverseConverter x:Key="boolToUIVisibilityInvertConverter"></conv:BoolToUIVisibilityInverseConverter>
+        <LinearGradientBrush x:Key="ProgressBarIndicatorBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFC6D6EC" Offset="0" />
+            <GradientStop Color="#FFBDD6FF" Offset="0.502" />
+            <GradientStop Color="#FF71A7FD" Offset="0.522" />
+            <GradientStop Color="#FF94BDFD" Offset="0.763" />
+            <GradientStop Color="#FFA9CAFF" Offset="1" />
+        </LinearGradientBrush>
+        <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="IndeterminateOn" RepeatBehavior="Forever">
+                                <DoubleAnimationUsingKeyFrames 
+                                    Storyboard.TargetName="IndeterminateGradientFill" 
+                                    Storyboard.TargetProperty="(Shape.Fill).(Brush.Transform).(TransformGroup.Children)[0].X" 
+                                    RepeatBehavior="Forever">
+                                    <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                    <SplineDoubleKeyFrame KeyTime="00:00:.5" Value="20" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames 
+                                    BeginTime="00:00:00" 
+                                    Duration="00:00:00.0010000" 
+                                    Storyboard.TargetName="IndeterminateRoot" 
+                                    Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Border x:Name="PART_Track" BorderThickness="1" CornerRadius="3" Opacity="0.825">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFFFFFFF" />
+                                        <GradientStop Color="#FFD8D8D8" Offset="0.327" />
+                                        <GradientStop Color="#FFDADADA" Offset="0.488" />
+                                        <GradientStop Color="#FFBEBEBE" Offset="0.539" />
+                                        <GradientStop Color="#FFD6D6D6" Offset="0.77" />
+                                        <GradientStop Color="#FFFFFFFF" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFBBBBBB" Offset="0" />
+                                        <GradientStop Color="#FF7E7E7E" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                            </Border>
+
+                            <Rectangle x:Name="PART_Indicator" Margin="1" RadiusX="1.5" RadiusY="1.5" HorizontalAlignment="Left" Opacity="0.83" Fill="{DynamicResource ProgressBarIndicatorBrush}"/>
+                            <Grid x:Name="IndeterminateRoot" Visibility="Collapsed">
+                                <Rectangle x:Name="IndeterminateSolidFill" Margin="1" Fill="#FF6EA4FD" RadiusX="2" RadiusY="2" Width="Auto" />
+                                <Rectangle x:Name="ProgressBarRootGradient" Margin="1" Panel.ZIndex="1" RadiusX="1.5" RadiusY="1.5">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#F6BCD5FF" Offset="0.046" />
+                                            <GradientStop Color="#96D4E4FF" Offset="0.18" />
+                                            <GradientStop Color="#4FFFFFFF" Offset="0.512" />
+                                            <GradientStop Color="#00D6D6D6" Offset="0.521" />
+                                            <GradientStop Color="#BABCD5FF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Rectangle x:Name="IndeterminateGradientFill" Margin="1" StrokeThickness="1" RadiusX="2" RadiusY="2" Opacity="0.7">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="20,1" MappingMode="Absolute" SpreadMethod="Repeat">
+                                            <LinearGradientBrush.Transform>
+                                                <TransformGroup>
+                                                    <TranslateTransform X="0" />
+                                                    <SkewTransform AngleX="-10" />
+                                                </TransformGroup>
+                                            </LinearGradientBrush.Transform>
+                                            <GradientStop Color="#FFBCD5FF" Offset="0.088" />
+                                            <GradientStop Color="#006EA4FD" Offset="0.475" />
+                                            <GradientStop Color="#FFBCD5FF" Offset="0.899" />
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                            <Border x:Name="DisabledVisualElement" IsHitTestVisible="false" Background="#A5FFFFFF" BorderBrush="#66FFFFFF" BorderThickness="1" Opacity="0" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" TargetName="DisabledVisualElement" Value="1" />
+                            </Trigger>
+                            <Trigger Property="IsIndeterminate" Value="True">
+                                <Trigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="IndeterminateOn_BeginStoryboard"/>
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="IndeterminateOn_BeginStoryboard" Storyboard="{StaticResource IndeterminateOn}" />
+                                </Trigger.EnterActions>
+                                <Setter Property="Visibility" TargetName="PART_Track" Value="Collapsed" />
+                                <Setter Property="Visibility" TargetName="PART_Indicator" Value="Collapsed" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!--<xctk:BusyIndicator Name="busyIndicator" IsBusy="{Binding IsBusy}" BusyContent="Пожалуйста, подождите...">-->
+    <Grid Margin="10,5,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Height="55" Margin="25,25,0,0" Source="pack://application:,,,/Resources/Images/Login.png"/>
+        <StackPanel Orientation="Vertical"  Grid.Column="1" HorizontalAlignment="Left" Margin="18,0,0,0">
+            <StackPanel  Visibility="{Binding IsBusy, Converter={StaticResource boolToUIVisibilityInvertConverter}}">
+                <TextBlock Margin="0,0,0,2" TextWrapping="Wrap" Text="Логин:"/>
+                <molser:MsTextBox 
+                    Name="Login" 
+                    HorizontalAlignment="Left"
+                    Width="160" Height="24" Margin="0,0,0,0" TextWrapping="Wrap">
+                    <molser:MsTextBox.Text>
+                        <Binding Mode="TwoWay" 
+                             Path="LoginParams.User.Login"
+                             UpdateSourceTrigger="PropertyChanged"
+                             ValidatesOnDataErrors="True">                           
+                        </Binding>
+                    </molser:MsTextBox.Text>
+                    <molser:MsTextBox.Style>
+                        <Style  TargetType="{x:Type molser:MsTextBox}" BasedOn="{StaticResource StandardMsTextBox}">                            
+                            <Setter Property="ToolTip" Value="Логин"/>
+                            <Style.Triggers>
+                                <Trigger Property="Validation.HasError"  Value="True">
+                                    <Setter Property="ToolTip"
+                                            Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </molser:MsTextBox.Style>
+                </molser:MsTextBox>
+                <TextBlock Margin="0,5,0,2" TextWrapping="Wrap" Text="Пароль:"/>
+                <PasswordBox Name="passwordBox" Margin="0,0,0,20" Width="160" Height="24" HorizontalAlignment="Left" ToolTip="Пароль"/>
+            </StackPanel>            
+            <!--<ProgressBar Style="{StaticResource ProgressBarStyle1}" HorizontalAlignment="Left" Height="40" Width="160" IsIndeterminate="True" 
+                         Visibility="{Binding IsBusy, Converter={StaticResource boolToUIVisibilityConverter}}"
+                         Margin="0,35,0,34"/>-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Command ="{Binding SetLoginCommand}" CommandParameter="{Binding ElementName=passwordBox}" IsDefault="True" Content="OK" Margin="0,0,0,0" Height="30" Width="75"/>
+                <Button IsCancel="True"  Content="Отмена" Margin="10,0,0,0" Height="30" Width="75"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+    <!--</xctk:BusyIndicator>-->
+</Window>

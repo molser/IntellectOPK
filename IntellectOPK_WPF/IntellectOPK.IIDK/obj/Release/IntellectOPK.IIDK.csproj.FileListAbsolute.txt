@@ -1,0 +1,14 @@
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\bin\Release\IntellectOPK.IIDK.dll
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\bin\Release\IntellectOPK.IIDK.pdb
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\obj\Release\IntellectOPK.IIDK.csprojResolveAssemblyReference.cache
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\obj\Release\IntellectOPK.IIDK.dll
+M:\Projecs\IntellectOPK\IntellectOPK_WPF\IntellectIIDK\obj\Release\IntellectOPK.IIDK.pdb
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\bin\Release\IntellectOPK.IIDK.dll
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\bin\Release\IntellectOPK.IIDK.pdb
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\obj\Release\IntellectOPK.IIDK.csprojResolveAssemblyReference.cache
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\obj\Release\IntellectOPK.IIDK.dll
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\obj\Release\IntellectOPK.IIDK.pdb
+M:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\bin\Release\IntellectOPK.IIDK.dll
+M:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\bin\Release\IntellectOPK.IIDK.pdb
+M:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\obj\Release\IntellectOPK.IIDK.dll
+M:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\obj\Release\IntellectOPK.IIDK.pdb

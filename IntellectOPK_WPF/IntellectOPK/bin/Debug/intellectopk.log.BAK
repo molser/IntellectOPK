@@ -1,0 +1,26 @@
+[CPU=0006][PID=00011244]:[NORMAL]:[TID=00016792]:[NORMAL] [12-07-20 16:38:24.047] TS: connecting 127.0.0.1
+[CPU=0001][PID=00011244]:[NORMAL]:[TID=00016792]:[NORMAL] [12-07-20 16:38:24.048] [TRANSPORT][SOCKET]: connected 127.0.0.1 (127.0.0.1:21030)
+[CPU=0006][PID=00011244]:[NORMAL]:[TID=00016792]:[NORMAL] [12-07-20 16:38:24.048] SL: connected Slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 - 
+[CPU=0005][PID=00011244]:[NORMAL]:[TID=00016792]:[NORMAL] [12-07-20 16:38:24.051] SL: slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 -  registred SLAVE|DOM2ARMVIDEO08.DOM2ARMVIDEO08|CONNECTED|ver_type<0>,TRANSPORT_TYPE<SOCKET>,module<intellectopk.exe>,local_connection<1>,time<16:38:24>,version<4,10,5,3530>,date<12-07-20>,SOCKET<172.18.205.108>,TRANSPORT_ID<1030>
+[CPU=0006][PID=00011244]:[NORMAL]:[TID=00013632(MAIN)]:[NORMAL] [12-07-20 16:39:43.546] SL: disconnected slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 - 
+[CPU=0004][PID=00011244]:[NORMAL]:[TID=00016964]:[NORMAL] [12-07-20 16:39:43.546] NetTransport::OnError type=11003
+[CPU=0006][PID=00011244]:[NORMAL]:[TID=00013632(MAIN)]:[NORMAL] [12-07-20 16:39:43.546] SL: closed slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 - 
+[CPU=0006][PID=00011244]:[NORMAL]:[TID=00013632(MAIN)]:[NORMAL] [12-07-20 16:39:43.546] SL: disconnected slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 - 
+[CPU=0006][PID=00011244]:[NORMAL]:[TID=00013632(MAIN)]:[NORMAL] [12-07-20 16:39:43.546] SL: closed slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 - 
+=====================================================================================================================
+CPU: 8 x AMD64 3400 MHz, RAM: 8159 MB
+Platform: OS: Windows 7 Professional, VER: 6.1, BLD: 7601, TYP: Client, EDT: Professional, MPS: Multiprocessor Free.
+Version: 1.2.3.1 (12-07-20 19:12:46)
+Computer: DOM2ARMVIDEO08, User: oaspk, Module: M:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK\bin\Debug\IntellectOPK.exe
+=====================================================================================================================
+[CPU=0005][PID=00008484]:[NORMAL]:[TID=00010140(MAIN)]:[NORMAL] [12-07-20 19:13:10.756] Slave constructed with ComputerName DOM2ARMVIDEO08
+[CPU=0005][PID=00008484]:[NORMAL]:[TID=00016656]:[NORMAL] [12-07-20 19:13:10.761] TS: connecting 127.0.0.1
+[CPU=0005][PID=00008484]:[NORMAL]:[TID=00016656]:[NORMAL] [12-07-20 19:13:10.762] [TRANSPORT][SOCKET]: connected 127.0.0.1 (127.0.0.1:21030)
+[CPU=0005][PID=00008484]:[NORMAL]:[TID=00016656]:[NORMAL] [12-07-20 19:13:10.762] SL: connected Slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 - 
+[CPU=0004][PID=00008484]:[NORMAL]:[TID=00016656]:[NORMAL] [12-07-20 19:13:10.770] SL: slave DOM2ARMVIDEO08.DOM2ARMVIDEO08 -  registred SLAVE|DOM2ARMVIDEO08.DOM2ARMVIDEO08|CONNECTED|ver_type<0>,TRANSPORT_TYPE<SOCKET>,module<intellectopk.exe>,local_connection<1>,time<19:13:10>,version<4,10,5,3530>,date<12-07-20>,SOCKET<172.18.205.108>,TRANSPORT_ID<1030>
+=====================================================================================================================
+CPU: 8 x AMD64 3400 MHz, RAM: 4063 MB
+Platform: OS: Windows 7 Professional, VER: 6.1, BLD: 7601, TYP: Client, EDT: Professional, MPS: Multiprocessor Free.
+Version: 1.2.3.1 (12-07-20 19:12:46)
+Computer: DOM2ARMVIDEO19, User: Администратор, Module: M:\Projecs\IntellectOPK\Application\IntellectOPK_WPF - копия (166) Exeternal Styles\IntellectOPK\bin\Debug\IntellectOPK.exe
+=====================================================================================================================

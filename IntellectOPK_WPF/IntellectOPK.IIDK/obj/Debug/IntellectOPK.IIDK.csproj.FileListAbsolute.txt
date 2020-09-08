@@ -1,0 +1,4 @@
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\bin\Debug\IntellectOPK.IIDK.dll
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\bin\Debug\IntellectOPK.IIDK.pdb
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\obj\Debug\IntellectOPK.IIDK.dll
+E:\Projecs\IntellectOPK\Application\IntellectOPK_WPF\IntellectOPK.IIDK\obj\Debug\IntellectOPK.IIDK.pdb
